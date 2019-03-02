@@ -25,6 +25,5 @@ public class Principal {
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
         listaVehiculo=llenar1.llenar();
         llenar1.opciones();
-    }
-    
+    }    
 }

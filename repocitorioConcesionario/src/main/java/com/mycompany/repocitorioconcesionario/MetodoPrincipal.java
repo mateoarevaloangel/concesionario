@@ -28,7 +28,6 @@ public class MetodoPrincipal {
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         ArrayList<Vehiculo> listaVehiculo = llenar();
         ArrayList<Factura> facturas = new ArrayList<Factura>();
-        
         while(1==1){
             String entradaTexto= "";
             System.out.println ("\nConcesionario - Escriba '1' para la comprar un vehiculo, '2' para la venta, '3' para inventario, '4' para salir: ");
@@ -40,10 +39,14 @@ public class MetodoPrincipal {
                 System.out.println ("Ingrese su nombre: ");
                 entradaTexto = entradaEscaner.nextLine();
                 facturas.add(new Factura(1,entradaTexto,comprarVehiculo(listaVehiculosComprados,listaVehiculo)));
+                listaVehiculo=comprarVehiculo(listaVehiculosComprados,listaVehiculo);
+                for(Vehiculo vehicu:listaVehiculo){
+                    vehicu.mostrarInformacion();
+                }
             }else if(valor == 2){
                 listaVehiculo.add(agregarVehiculo());
             }else if(valor==3){
-                
+                mostrarInventario(listaVehiculo);
             }else if(valor==4){
                 System.exit(0);
             }else{
@@ -58,12 +61,12 @@ public class MetodoPrincipal {
         return listaVehiculo;
     }
      public static ArrayList<Vehiculo> comprarVehiculo(ArrayList<String> listaVehiculosComprados ,ArrayList<Vehiculo> listaVehiculo){             
-         ArrayList<Vehiculo> listaVehiculos=new ArrayList<Vehiculo>();
+         //ArrayList<Vehiculo> listaVehiculos=new ArrayList<Vehiculo>();
          for(String vehiculoComprado:listaVehiculosComprados){
             //listaVehiculo.remove(vehiculoComprado);
              for(Vehiculo vehiculo:listaVehiculo){
                  if(vehiculoComprado.equals(vehiculo.modelo)){
-                     listaVehiculos.add(vehiculo);
+                     listaVehiculo.remove(vehiculo);
                  }
                }
              }            
