@@ -24,29 +24,30 @@ public class MetodoPrincipal {
     //Personalizado personalizado = (Personalizado) new Vehiculo("Mercedez","A3", 4, 30000000,3);
     
     public void opciones(){
+        
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         ArrayList<Vehiculo> listaVehiculo = llenar();
         ArrayList<Factura> facturas = new ArrayList<Factura>();
-        String entradaTexto= "";
-        System.out.println ("Escriba una '1' para la comprar un vehiculo y '2' para la venta '3' para inventario");
-        Scanner entradaEscaner = new Scanner (System.in); 
-        entradaTexto = entradaEscaner.nextLine();
-        int valor = Integer.parseInt(entradaTexto);
-        if (valor == 1){            
-            listaVehiculosComprados=opcionComprar(listaVehiculo);
-            System.out.println ("ingrese su nombre");
+        
+        while(1==1){
+            String entradaTexto= "";
+            System.out.println ("\nConcesionario - Escriba '1' para la comprar un vehiculo, '2' para la venta, '3' para inventario, '4' para salir: ");
+            Scanner entradaEscaner = new Scanner (System.in); 
             entradaTexto = entradaEscaner.nextLine();
-            facturas.add(new Factura(1,entradaTexto,comprarVehiculo(listaVehiculosComprados,listaVehiculo)));
-        }else{
-            if(valor == 2){
+            int valor = Integer.parseInt(entradaTexto);
+            if (valor == 1){            
+                listaVehiculosComprados=opcionComprar(listaVehiculo);
+                System.out.println ("Ingrese su nombre: ");
+                entradaTexto = entradaEscaner.nextLine();
+                facturas.add(new Factura(1,entradaTexto,comprarVehiculo(listaVehiculosComprados,listaVehiculo)));
+            }else if(valor == 2){
                 listaVehiculo.add(agregarVehiculo());
+            }else if(valor==3){
+                
+            }else if(valor==4){
+                System.exit(0);
             }else{
-                if(valor==3){
-                    
-                }else{
-                    System.out.println ("Opcion no valida");
-                    //System.out.println (entradaTexto);
-                }
+                System.out.println ("Opcion no válida.\n");
             }
         }
     }
@@ -81,18 +82,18 @@ public class MetodoPrincipal {
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         mostrarInventario(listaVehiculo);
         String modelo= "";
-        System.out.println ("ingrese el modelo del vehiculo que desea comprar");
+        System.out.println ("Ingrese el modelo del vehiculo que desea comprar: ");
         Scanner entradaEscaner = new Scanner (System.in);
         modelo = entradaEscaner.nextLine ();
         listaVehiculosComprados.add(modelo);
         String entradaTexto= "";
-        System.out.println ("desea comprar otro vehiculo s/n");
+        System.out.println ("Desea comprar otro vehiculo s/n: ");
         entradaTexto = entradaEscaner.nextLine ();
         while(entradaTexto.equals("s")){
-            System.out.println ("ingrese el modelo del vehiculo que desea comprar");
+            System.out.println ("Ingrese el modelo del vehiculo que desea comprar: ");
             modelo = entradaEscaner.nextLine ();
             listaVehiculosComprados.add(modelo);
-            System.out.println ("desea comprar otro vehiculo s/n");
+            System.out.println ("Desea comprar otro vehiculo s/n: ");
             entradaTexto = entradaEscaner.nextLine ();
             listaVehiculosComprados.add(modelo);
         }
@@ -105,23 +106,23 @@ public class MetodoPrincipal {
         int llantas=0;
         int precio=0;
         int vidaUtil=0;
-        System.out.println ("ingrese el modelo del vehiculo ");
+        System.out.println ("Ingrese el modelo del vehiculo: ");
         Scanner entradaEscaner = new Scanner (System.in);
         modelo = entradaEscaner.nextLine();
-        System.out.println ("ingrese el marca del vehiculo ");
+        System.out.println ("Ingrese el marca del vehiculo: ");
         marca = entradaEscaner.nextLine ();
-        System.out.println ("ingrese el marca del vehiculo ");
+        System.out.println ("Ingrese número de llantas del vehiculo: ");
         llantas = Integer.parseInt(entradaEscaner.nextLine());
-        System.out.println ("ingrese el marca del vehiculo ");
+        System.out.println ("Ingrese el precio del vehiculo: ");
         precio = Integer.parseInt(entradaEscaner.nextLine());
-        System.out.println ("ingrese el marca del vehiculo ");
+        System.out.println ("Ingrese años de vida útil del vehiculo: ");
         vidaUtil = Integer.parseInt(entradaEscaner.nextLine());
         Vehiculo vehiculo=new Vehiculo(marca,modelo,llantas,precio,vidaUtil);
         return vehiculo;
     }
     public static void mostrarInventario(ArrayList<Vehiculo> listaVehiculo){
         for(int i =0 ;i<listaVehiculo.size();i++){
-             System.out.println(listaVehiculo.get(i).modelo);
+             System.out.println("Modelo: "+listaVehiculo.get(i).modelo+", "+"Marca: "+listaVehiculo.get(i).marca+", "+"Llantas: "+listaVehiculo.get(i).llantas+", "+"Precio: $"+listaVehiculo.get(i).precio+", "+"Vida útil: "+listaVehiculo.get(i).vidaUtil+" años ");
              //System.out.println (cadenaNumerica[i]);
          }       
     }
