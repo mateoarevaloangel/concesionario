@@ -13,7 +13,7 @@ import java.util.Scanner;
  * @author daniel
  */
 public class MetodoPrincipal {
-    public ArrayList<Vehiculo> llenar(){
+    public static ArrayList<Vehiculo> llenar(){
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
         Vehiculo vehiculo1 = new Vehiculo("Mercedez","A3", 4, 45000000,3);
         listaVehiculo.add(vehiculo1);

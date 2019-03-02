@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author daniel
  */
 public class Principal {
-    MetodoPrincipal llenar1 = new MetodoPrincipal();
+    static MetodoPrincipal llenar1 = new MetodoPrincipal();
 
     /**
      * @param args the command line arguments
