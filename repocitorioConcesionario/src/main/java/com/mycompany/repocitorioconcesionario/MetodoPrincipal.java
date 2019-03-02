@@ -13,19 +13,17 @@ import java.util.Scanner;
  * @author daniel
  */
 public class MetodoPrincipal {
-    public static ArrayList<Vehiculo> llenar(){
+    public ArrayList<Vehiculo> llenar(){
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
         Vehiculo vehiculo1 = new Vehiculo("Mercedez","A3", 4, 45000000,3);
         listaVehiculo.add(vehiculo1);
         vehiculo1=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
         listaVehiculo.add(vehiculo1);
         return listaVehiculo;
-    }
-    
-    
+    }        
     //Personalizado personalizado = (Personalizado) new Vehiculo("Mercedez","A3", 4, 30000000,3);
     
-    public static void opciones(){
+    public void opciones(){
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         ArrayList<Vehiculo> listaVehiculo = llenar();
         ArrayList<Factura> facturas = new ArrayList<Factura>();
