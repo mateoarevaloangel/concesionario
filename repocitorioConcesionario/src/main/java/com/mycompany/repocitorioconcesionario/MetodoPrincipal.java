@@ -13,6 +13,10 @@ import java.util.Scanner;
  * @author daniel
  */
 public class MetodoPrincipal {
+    /**
+     * 
+     * @return 
+     */
     public static ArrayList<Vehiculo> llenar(){
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
         Vehiculo vehiculo1 = new Vehiculo("Mercedez","A3", 4, 45000000,3);
@@ -21,8 +25,10 @@ public class MetodoPrincipal {
         listaVehiculo.add(vehiculo1);
         return listaVehiculo;
     }        
-    //Personalizado personalizado = (Personalizado) new Vehiculo("Mercedez","A3", 4, 30000000,3);
     
+    /**
+     * 
+     */
     public void opciones(){
         
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
@@ -81,7 +87,6 @@ public class MetodoPrincipal {
         return null;
     }
     public static ArrayList<String> opcionComprar(ArrayList<Vehiculo> listaVehiculo){
-        //ArrayList<Vehiculo> listaVehiculosComprados = new ArrayList<Vehiculo>();
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         mostrarInventario(listaVehiculo);
         String modelo= "";
@@ -100,7 +105,6 @@ public class MetodoPrincipal {
             entradaTexto = entradaEscaner.nextLine ();
             listaVehiculosComprados.add(modelo);
         }
-        
         return listaVehiculosComprados;
     }
     public static Vehiculo agregarVehiculo (){
