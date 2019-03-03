@@ -5,6 +5,8 @@
  */
 package com.mycompany.repocitorioconcesionario;
 
+import java.util.Scanner;
+
 /**
  *
  * @author daniel
@@ -26,5 +28,22 @@ public class Personalizado extends Vehiculo{
         System.out.println ("vida util :"+this.vidaUtil);
         System.out.println ("luces :"+this.luces);
         System.out.println ("alerones :"+this.alerones);
+    }
+    public void create(){
+        System.out.println ("Ingrese el modelo del vehiculo: ");
+        Scanner entradaEscaner = new Scanner (System.in);
+        super.modelo = entradaEscaner.nextLine();
+        System.out.println ("Ingrese el marca del vehiculo: ");
+        super.marca = entradaEscaner.nextLine ();
+        System.out.println ("Ingrese número de llantas del vehiculo: ");
+        super.llantas = Integer.parseInt(entradaEscaner.nextLine());
+        System.out.println ("Ingrese el precio del vehiculo: ");
+        super.precio = Integer.parseInt(entradaEscaner.nextLine());
+        System.out.println ("Ingrese años de vida útil del vehiculo: ");
+        vidaUtil = Integer.parseInt(entradaEscaner.nextLine());
+        System.out.println ("Ingrese tipo de luces ");
+        this.luces= entradaEscaner.nextLine();
+        System.out.println ("Ingrese tipo de alerones ");
+        this.alerones= entradaEscaner.nextLine();
     }
 }

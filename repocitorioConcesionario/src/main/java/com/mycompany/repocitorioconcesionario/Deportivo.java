@@ -26,7 +26,7 @@ public class Deportivo extends Vehiculo{
         System.out.println ("vida util :"+this.vidaUtil);
         System.out.println ("descapotado :"+this.descapotable);
     }
-    public void Create(){
+    public void create(){
         System.out.println ("Ingrese el modelo del vehiculo: ");
         Scanner entradaEscaner = new Scanner (System.in);
         super.modelo = entradaEscaner.nextLine();

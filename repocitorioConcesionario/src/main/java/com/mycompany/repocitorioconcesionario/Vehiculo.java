@@ -44,7 +44,7 @@ public class Vehiculo implements VehiculoInterface
         System.out.println ("precio :"+this.precio);
         System.out.println ("vida util"+this.vidaUtil);
     }   
-    public void Create(){
+    public void create(){
         System.out.println ("Ingrese el modelo del vehiculo: ");
         Scanner entradaEscaner = new Scanner (System.in);
         this.modelo = entradaEscaner.nextLine();

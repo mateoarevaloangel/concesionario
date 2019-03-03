@@ -109,24 +109,38 @@ public class MetodoPrincipal {
         return listaVehiculosComprados;
     }
     public static Vehiculo agregarVehiculo (){
-        String modelo= "";
-        String marca= "";
-        int llantas=0;
-        int precio=0;
-        int vidaUtil=0;
-        System.out.println ("Ingrese el modelo del vehiculo: ");
+        System.out.println ("Ingrese 'e' para vehiculo estandar");
+        System.out.println ("Ingrese 'p' para vehiculo personalizado");
+        System.out.println ("Ingrese 'm' para maquinaria pesada");
+        System.out.println ("Ingrese 'd' para vehiculo desportivo");
         Scanner entradaEscaner = new Scanner (System.in);
-        modelo = entradaEscaner.nextLine();
-        System.out.println ("Ingrese el marca del vehiculo: ");
-        marca = entradaEscaner.nextLine ();
-        System.out.println ("Ingrese número de llantas del vehiculo: ");
-        llantas = Integer.parseInt(entradaEscaner.nextLine());
-        System.out.println ("Ingrese el precio del vehiculo: ");
-        precio = Integer.parseInt(entradaEscaner.nextLine());
-        System.out.println ("Ingrese años de vida útil del vehiculo: ");
-        vidaUtil = Integer.parseInt(entradaEscaner.nextLine());
-        Vehiculo vehiculo=new Vehiculo(marca,modelo,llantas,precio,vidaUtil);
-        return vehiculo;
+        String valor = entradaEscaner.nextLine();
+        //Vehiculo vehiculo1=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
+        if(valor.equals("e")){
+            Vehiculo vehiculo=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
+            vehiculo.create();
+            return vehiculo;
+        }else{
+            if(valor.equals("p")){
+                Vehiculo vehiculo=new Personalizado("chevrolet","4x4", 4, 20000000,3,"neon","cohete");
+                vehiculo.create();
+                return vehiculo;
+            }else{
+                if(valor.equals("m")){
+                    Vehiculo vehiculo=new MaquinariaPesada("carga","chevrolet","4x4", 4, 20000000,3);
+                    vehiculo.create();
+                    return vehiculo;
+                }else{
+                    if(valor.equals("d")){
+                        Vehiculo vehiculo=new Deportivo("no","chevrolet","4x4", 4, 20000000,3);
+                        vehiculo.create();
+                        return vehiculo;
+                    }
+                }
+            }
+        }
+        
+        return null;
     }
     public static void mostrarInventario(ArrayList<Vehiculo> listaVehiculo){
         for(Vehiculo vehiculo:listaVehiculo){
