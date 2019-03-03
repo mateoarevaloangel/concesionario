@@ -23,14 +23,15 @@ public class MetodoPrincipal {
         listaVehiculo.add(vehiculo1);
         vehiculo1=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
         listaVehiculo.add(vehiculo1);
+        vehiculo1=new Personalizado("chevrolet","4x4", 4, 20000000,3,"neon","jet");
+        listaVehiculo.add(vehiculo1);
         return listaVehiculo;
     }        
     
     /**
      * 
      */
-    public void opciones(){
-        
+    public void opciones(){        
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         ArrayList<Vehiculo> listaVehiculo = llenar();
         ArrayList<Factura> facturas = new ArrayList<Factura>();
@@ -128,9 +129,9 @@ public class MetodoPrincipal {
         return vehiculo;
     }
     public static void mostrarInventario(ArrayList<Vehiculo> listaVehiculo){
-        for(int i =0 ;i<listaVehiculo.size();i++){
-             System.out.println("Modelo: "+listaVehiculo.get(i).modelo+", "+"Marca: "+listaVehiculo.get(i).marca+", "+"Llantas: "+listaVehiculo.get(i).llantas+", "+"Precio: $"+listaVehiculo.get(i).precio+", "+"Vida útil: "+listaVehiculo.get(i).vidaUtil+" años ");
-             //System.out.println (cadenaNumerica[i]);
+        for(Vehiculo vehiculo:listaVehiculo){
+             //System.out.println("Modelo: "+listaVehiculo.get(i).modelo+", "+"Marca: "+listaVehiculo.get(i).marca+", "+"Llantas: "+listaVehiculo.get(i).llantas+", "+"Precio: $"+listaVehiculo.get(i).precio+", "+"Vida útil: "+listaVehiculo.get(i).vidaUtil+" años ");
+             vehiculo.mostrarInformacion();
          }       
     }
     public static void inventario(ArrayList<Factura> facturas){

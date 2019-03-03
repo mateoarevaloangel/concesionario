@@ -16,6 +16,14 @@ public class MaquinariaPesada extends Vehiculo{
         super(marca, modelo, llantas, precio, vidaUtil);
         this.carga = carga;
     }
+    public void mostrarInformacion() {
+        System.out.println ("numer de llantas: "+this.llantas);
+        System.out.println ("modelo: "+this.modelo);
+        System.out.println ("marca :"+this.marca);
+        System.out.println ("precio :"+this.precio);
+        System.out.println ("vida util"+this.vidaUtil);
+        System.out.println ("carga :"+this.carga);
+    }
 
     
 }

@@ -5,6 +5,7 @@
  */
 package com.mycompany.repocitorioconcesionario;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -43,4 +44,17 @@ public class Vehiculo implements VehiculoInterface
         System.out.println ("precio :"+this.precio);
         System.out.println ("vida util"+this.vidaUtil);
     }   
+    public void Create(){
+        System.out.println ("Ingrese el modelo del vehiculo: ");
+        Scanner entradaEscaner = new Scanner (System.in);
+        this.modelo = entradaEscaner.nextLine();
+        System.out.println ("Ingrese el marca del vehiculo: ");
+        this.marca = entradaEscaner.nextLine ();
+        System.out.println ("Ingrese número de llantas del vehiculo: ");
+        this.llantas = Integer.parseInt(entradaEscaner.nextLine());
+        System.out.println ("Ingrese el precio del vehiculo: ");
+        this.precio = Integer.parseInt(entradaEscaner.nextLine());
+        System.out.println ("Ingrese años de vida útil del vehiculo: ");
+        vidaUtil = Integer.parseInt(entradaEscaner.nextLine());
+    }
 }
