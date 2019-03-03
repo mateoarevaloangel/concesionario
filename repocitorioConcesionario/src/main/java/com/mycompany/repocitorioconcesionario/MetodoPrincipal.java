@@ -23,7 +23,11 @@ public class MetodoPrincipal {
         listaVehiculo.add(vehiculo1);
         vehiculo1=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
         listaVehiculo.add(vehiculo1);
-        vehiculo1=new Personalizado("chevrolet","4x4", 4, 20000000,3,"neon","jet");
+        vehiculo1=new Personalizado("chevrolet","lx", 4, 150000000,3,"neon","jet");
+        listaVehiculo.add(vehiculo1);
+        vehiculo1=new Personalizado("viper","GT", 4, 150000000,3,"estrovoscopicas","xion");
+        listaVehiculo.add(vehiculo1);
+        vehiculo1=new MaquinariaPesada("container","Foton","GTX", 4, 150000000,3);
         listaVehiculo.add(vehiculo1);
         return listaVehiculo;
     }        
@@ -36,6 +40,9 @@ public class MetodoPrincipal {
         ArrayList<Vehiculo> listaVehiculo = llenar();
         ArrayList<Factura> facturas = new ArrayList<Factura>();
         while(1==1){
+            if(listaVehiculo.size()<3){
+                System.out.println ("Inventario bajo");
+            }
             String entradaTexto= "";
             System.out.println ("\nConcesionario - Escriba '1' para la comprar un vehiculo, '2' para la venta, '3' para inventario, '4' para salir: ");
             Scanner entradaEscaner = new Scanner (System.in); 
@@ -45,11 +52,10 @@ public class MetodoPrincipal {
                 listaVehiculosComprados=opcionComprar(listaVehiculo);
                 System.out.println ("Ingrese su nombre: ");
                 entradaTexto = entradaEscaner.nextLine();
-                facturas.add(new Factura(1,entradaTexto,comprarVehiculo(listaVehiculosComprados,listaVehiculo)));
+                facturas.add(new Factura(1,entradaTexto,comprarVehiculo(listaVehiculosComprados,listaVehiculo)));                
                 listaVehiculo=comprarVehiculo(listaVehiculosComprados,listaVehiculo);
-                for(Vehiculo vehicu:listaVehiculo){
-                    vehicu.mostrarInformacion();
-                }
+                System.out.println ("falla");
+                
             }else if(valor == 2){
                 listaVehiculo.add(agregarVehiculo());
             }else if(valor==3){
@@ -68,15 +74,15 @@ public class MetodoPrincipal {
         return listaVehiculo;
     }
      public static ArrayList<Vehiculo> comprarVehiculo(ArrayList<String> listaVehiculosComprados ,ArrayList<Vehiculo> listaVehiculo){             
-         //ArrayList<Vehiculo> listaVehiculos=new ArrayList<Vehiculo>();
+         ArrayList<Vehiculo> listaVehiculos=new ArrayList<Vehiculo>();         
          for(String vehiculoComprado:listaVehiculosComprados){
-            //listaVehiculo.remove(vehiculoComprado);
-             for(Vehiculo vehiculo:listaVehiculo){
-                 if(vehiculoComprado.equals(vehiculo.modelo)){
-                     listaVehiculo.remove(vehiculo);
-                 }
-               }
-             }            
+             for(int i=0; i<listaVehiculo.size();i++ ){
+                Vehiculo vehiculo = listaVehiculo.get(i);
+                if(vehiculo.modelo.equals(vehiculoComprado)){
+                    listaVehiculo.remove(i);
+                }
+            }             
+        }                    
         return listaVehiculo;
     }
      public static Vehiculo buscarVehiculo(String auto,ArrayList<Vehiculo> listaVehiculo){             
@@ -115,7 +121,6 @@ public class MetodoPrincipal {
         System.out.println ("Ingrese 'd' para vehiculo desportivo");
         Scanner entradaEscaner = new Scanner (System.in);
         String valor = entradaEscaner.nextLine();
-        //Vehiculo vehiculo1=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
         if(valor.equals("e")){
             Vehiculo vehiculo=new Vehiculo("chevrolet","4x4", 4, 20000000,3);
             vehiculo.create();
@@ -138,13 +143,11 @@ public class MetodoPrincipal {
                     }
                 }
             }
-        }
-        
+        }        
         return null;
     }
     public static void mostrarInventario(ArrayList<Vehiculo> listaVehiculo){
         for(Vehiculo vehiculo:listaVehiculo){
-             //System.out.println("Modelo: "+listaVehiculo.get(i).modelo+", "+"Marca: "+listaVehiculo.get(i).marca+", "+"Llantas: "+listaVehiculo.get(i).llantas+", "+"Precio: $"+listaVehiculo.get(i).precio+", "+"Vida útil: "+listaVehiculo.get(i).vidaUtil+" años ");
              vehiculo.mostrarInformacion();
          }       
     }
