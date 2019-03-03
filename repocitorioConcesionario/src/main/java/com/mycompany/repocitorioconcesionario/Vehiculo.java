@@ -10,16 +10,40 @@ import java.util.Scanner;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Vehiculo implements VehiculoInterface
 {
     //protected int kilometraje;
+    /**
+     * Variable que guarda la marca del vehiculo
+     */
     protected String marca;
+    /**
+     * Variable que guarda el modelo del vehiculo
+     */
     protected String modelo;
+    /**
+     * Variable que guarda el numéro de llantas del vehiculo
+     */
     protected int llantas;
+    /**
+     * Variable que guarda el precio del vehiculo
+     */
     protected int precio;
+    /**
+     * Variable que guarda los años de vida util
+     */
     protected int vidaUtil;
-
+    /**
+     * Constructor de vehiculo
+     * @param marca Recibe la marca del vehiculo
+     * @param modelo Recibe el modelo del vehiculo
+     * @param llantas Recibe el numero de lllantas
+     * @param precio Recibe el precio del vehiculo
+     * @param vidaUtil Recibe los años de vida util
+     */
     public Vehiculo(String marca, String modelo, int llantas, int precio, int vidaUtil) {
         this.marca = marca;
         this.modelo = modelo;
@@ -35,7 +59,9 @@ public class Vehiculo implements VehiculoInterface
         }
         return listaVehiculo;
     }
-
+    /**
+     * Método para mostrar informacion del vehiculo
+     */
     @Override
     public void mostrarInformacion() {
         System.out.println ("numer de llantas: "+this.llantas);
@@ -44,6 +70,9 @@ public class Vehiculo implements VehiculoInterface
         System.out.println ("precio :"+this.precio);
         System.out.println ("vida util"+this.vidaUtil);
     }   
+    /**
+     * Método para agregar un vehiculo
+     */
     public void create(){
         System.out.println ("Ingrese el modelo del vehiculo: ");
         Scanner entradaEscaner = new Scanner (System.in);

@@ -11,11 +11,13 @@ import java.util.Scanner;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class MetodoPrincipal {
     /**
-     * 
-     * @return 
+     * Método para llenar un ArrayList con los vehiculos para la venta
+     * @return Devuelve la lista con vehiculos precargados
      */
     public static ArrayList<Vehiculo> llenar(){
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
@@ -29,7 +31,7 @@ public class MetodoPrincipal {
     }        
     
     /**
-     * 
+     * Método para mostrar en consola un menú de opciones
      */
     public void opciones(){        
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
@@ -37,7 +39,7 @@ public class MetodoPrincipal {
         ArrayList<Factura> facturas = new ArrayList<Factura>();
         while(1==1){
             String entradaTexto= "";
-            System.out.println ("\nConcesionario - Escriba '1' para la comprar un vehiculo, '2' para la venta, '3' para inventario, '4' para salir: ");
+            System.out.println ("\nConcesionario - Escriba '1' para comprar un vehiculo, '2' para la venta, '3' para inventario, '4' para salir: ");
             Scanner entradaEscaner = new Scanner (System.in); 
             entradaTexto = entradaEscaner.nextLine();
             int valor = Integer.parseInt(entradaTexto);
@@ -61,12 +63,24 @@ public class MetodoPrincipal {
             }
         }
     }
+    /**
+     * Método para la compra de vehículos, se descuenta del inventario
+     * @param listaVehiculosComprados Recibe la lista de vehiculos comprados
+     * @param listaVehiculo Recibe la lista de vehiculos en inventario 
+     * @return Devuelve la lista de vehículos comprados
+     */
     public static ArrayList<Vehiculo> comprar(ArrayList<Vehiculo> listaVehiculosComprados ,ArrayList<Vehiculo> listaVehiculo){             
         for(Vehiculo vehiculoComprado:listaVehiculosComprados){
             listaVehiculo.remove(vehiculoComprado);
         }
         return listaVehiculo;
     }
+    /**
+     * Método para la compra de vehículos, se descuenta del inventario
+     * @param listaVehiculosComprados Recibe la lista de vehiculos comprados
+     * @param listaVehiculo Recibe la lista de vehiculos en inventario 
+     * @return Devuelve la lista de vehículos comprados
+     */
      public static ArrayList<Vehiculo> comprarVehiculo(ArrayList<String> listaVehiculosComprados ,ArrayList<Vehiculo> listaVehiculo){             
          //ArrayList<Vehiculo> listaVehiculos=new ArrayList<Vehiculo>();
          for(String vehiculoComprado:listaVehiculosComprados){
@@ -79,6 +93,12 @@ public class MetodoPrincipal {
              }            
         return listaVehiculo;
     }
+     /**
+     * Método para buscar un vehículo en el inventario por el tipo de mpdelo
+     * @param auto 
+     * @param listaVehiculo Recibe la lista de vehiculos en inventario
+     * @return Devuelve la información del vehículo, en caso de no encontrar el modelo no retorna
+     */
      public static Vehiculo buscarVehiculo(String auto,ArrayList<Vehiculo> listaVehiculo){             
         for(Vehiculo vehiculo:listaVehiculo){
             if(vehiculo.modelo.equals(auto)){
@@ -87,6 +107,11 @@ public class MetodoPrincipal {
         }
         return null;
     }
+     /**
+     * Método para la comprar más de un vehículo
+     * @param listaVehiculo Recibe la lista de vehiculos en inventario
+     * @return Devuelve la lista de vehículos comprados
+     */
     public static ArrayList<String> opcionComprar(ArrayList<Vehiculo> listaVehiculo){
         ArrayList<String> listaVehiculosComprados = new ArrayList<String>();
         mostrarInventario(listaVehiculo);
@@ -108,6 +133,10 @@ public class MetodoPrincipal {
         }
         return listaVehiculosComprados;
     }
+    /**
+     * Método para agregar vehículos (estándar, personalizado, maquinaria o deportivo)
+     * @return Devuelve el vehículo añadido
+     */
     public static Vehiculo agregarVehiculo (){
         System.out.println ("Ingrese 'e' para vehiculo estandar");
         System.out.println ("Ingrese 'p' para vehiculo personalizado");
@@ -142,12 +171,20 @@ public class MetodoPrincipal {
         
         return null;
     }
+    /**
+     * Método para mostrar el inventario de vehículos
+     * @param listaVehiculo Recibe la lista de vehiculos en inventario
+     */
     public static void mostrarInventario(ArrayList<Vehiculo> listaVehiculo){
         for(Vehiculo vehiculo:listaVehiculo){
              //System.out.println("Modelo: "+listaVehiculo.get(i).modelo+", "+"Marca: "+listaVehiculo.get(i).marca+", "+"Llantas: "+listaVehiculo.get(i).llantas+", "+"Precio: $"+listaVehiculo.get(i).precio+", "+"Vida útil: "+listaVehiculo.get(i).vidaUtil+" años ");
              vehiculo.mostrarInformacion();
          }       
     }
+    /**
+     * Método para la facturación
+     * @param facturas Recibe la lista de compras realizadas con su factura
+     */
     public static void inventario(ArrayList<Factura> facturas){
         for(Factura factura:facturas){
             factura.mostrarInformacion();
