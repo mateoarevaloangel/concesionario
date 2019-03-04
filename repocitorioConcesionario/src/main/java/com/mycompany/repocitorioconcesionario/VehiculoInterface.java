@@ -10,6 +10,8 @@ import java.util.ArrayList;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public interface VehiculoInterface {
      
@@ -18,8 +20,15 @@ public interface VehiculoInterface {
     //public static final int llantas=0;
     //public static final int precio=0;
     //public static final int vidaUtil=0;
-    
+    /**
+     * Método abstracto para comprar un vehículo
+     * @param listaVehiculosComprados Recibe los vehiculos comprados
+     * @param listaVehiculo Recibe el listado en inventario
+     */
     public ArrayList<Vehiculo> comprar(ArrayList<Vehiculo> listaVehiculosComprados ,ArrayList<Vehiculo> listaVehiculo);
+    /**
+     * Método abstracto para mostrar la informacion de un vehiculo
+     */
     public void mostrarInformacion();
-    
+    public void create();
 }

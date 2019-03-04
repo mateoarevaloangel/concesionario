@@ -10,16 +10,36 @@ import java.util.Scanner;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Personalizado extends Vehiculo{
+    /**
+     * Variable que determina el tipo de luces de un vehiculo personalizado
+     */
     String luces;
+    /**
+     * Variable que determina el tipo de aleron de un vehiculo personalizado
+     */
     String alerones;
-
+    /**
+     * Constructor de vehiculo personalizado
+     * @param luces Recibe el tipo de luces del vehiculo
+     * @param alerones Recibe el tipo de aleron del vehiculo
+     * @param marca Recibe la marca del vehiculo
+     * @param modelo Recibe el modelo del vehiculo
+     * @param llantas Recibe el numero de lllantas
+     * @param precio Recibe el precio del vehiculo
+     * @param vidaUtil Recibe los años de vida util
+     */
     public Personalizado(String marca, String modelo, int llantas, int precio, int vidaUtil, String luces, String alerones) {
         super(marca, modelo, llantas, precio, vidaUtil);
         this.luces=luces;
         this.alerones=alerones;
     }
+    /**
+     * Método para mostrar informacion del vehiculo
+     */
     public void mostrarInformacion() {
         System.out.println ("numer de llantas: "+this.llantas);
         System.out.println ("modelo: "+this.modelo);
@@ -29,6 +49,9 @@ public class Personalizado extends Vehiculo{
         System.out.println ("luces :"+this.luces);
         System.out.println ("alerones :"+this.alerones);
     }
+    /**
+     * Método para agregar un vehiculo
+     */
     public void create(){
         System.out.println ("Ingrese el modelo del vehiculo: ");
         Scanner entradaEscaner = new Scanner (System.in);

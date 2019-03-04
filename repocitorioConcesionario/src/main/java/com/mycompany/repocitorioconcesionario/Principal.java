@@ -10,8 +10,13 @@ import java.util.ArrayList;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Principal {
+    /**
+     * Objeto estático para llamar la función de llenado
+     */
     static MetodoPrincipal llenar1 = new MetodoPrincipal();
 
     /**
@@ -21,6 +26,10 @@ public class Principal {
         inicio();
         // TODO code application logic here
     }
+    /**
+     * Método para llenar la lista de inventario con vehículos precargados
+     * 
+     */   
     public static void inicio(){
         ArrayList<Vehiculo> listaVehiculo = new ArrayList<Vehiculo>();
         listaVehiculo=llenar1.llenar();

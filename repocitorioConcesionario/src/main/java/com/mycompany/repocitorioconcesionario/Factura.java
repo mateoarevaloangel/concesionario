@@ -10,12 +10,26 @@ import java.util.ArrayList;
 /**
  *
  * @author daniel
+ * @author MateoG
+ * @version 1.0
  */
 public class Factura {
+    /**
+     * Variable que guarda el numéro de factura
+     */
     protected int id;
     //protected String nit;
+    /**
+     * Variable que guarda el nombre del cliente
+     */
     public String comprador;
+    /**
+     * Variable que guarda el total de la factura
+     */
     public int total;
+    /**
+     * Variable que guarda la lista de ventas
+     */
     protected ArrayList<Vehiculo> venta;
 
     public Factura(int id, String comprador, ArrayList<Vehiculo> venta) {
@@ -30,6 +44,7 @@ public class Factura {
     }
     public void mostrarInformacion(){
         System.out.println ("numer de la factura: "+this.id);
+        System.out.println ("comprador : "+this.comprador);
         System.out.println ("precio :"+this.total);
         for(Vehiculo vehiculo:this.venta){
             for(int i =0 ;i<venta.size();i++){
@@ -42,4 +57,3 @@ public class Factura {
         }
     }
 }
-
